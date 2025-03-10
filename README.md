@@ -85,6 +85,10 @@ To start MongoDB using Docker Compose, run:
 
 ```sh
 cd docker
+cp .env.example .env
+```
+update `.env` with your credintials
+```
 docker-compose -f docker-compose.yml up -d
 ```
 
