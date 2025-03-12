@@ -98,13 +98,13 @@ async def process_endpoint(request: Request, project_id: str, process_request: P
         asset_model: AssetModel = await AssetModel.create_instance(
             db_client=request.app.db_client
         )
-        project_files = await asset_model.get_all_project_assets(
+        project_files: list[Asset] = await asset_model.get_all_project_assets(
             asset_project_id=project.id,
             asset_type=AssetTypeEnum.FILE.value
         )
 
         project_file_ids = [
-            record["asset_name"]
+            record.asset_name
             for record in project_files
         ]
     
