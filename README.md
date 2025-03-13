@@ -47,22 +47,23 @@ Processes an uploaded file, dividing it into chunks, and stores the chunks in Mo
 **Request Body (JSON):**
 ```json
 {
-    "file_id": "abcdef123456", 
-    "chunk_size": 500, 
+    "file_id": "FILE_ID.EXT",
+    "chunk_size": 500,
     "overlap_size": 50,
     "do_reset": 1
 }
 ```
-- `file_id` (string): The ID of the uploaded file.
-- `chunk_size` (int): The number of characters per chunk.
-- `overlap_size` (int): The number of overlapping characters between chunks.
-- `do_reset` (0 or 1): If `1`, resets previous processed data.
+- `file_id` (Optional string): The ID of the uploaded file.
+- `chunk_size` (Optional int): The number of characters per chunk.
+- `overlap_size` (Optional int): The number of overlapping characters between chunks.
+- `do_reset` (Optional int 0 or 1): If `1`, resets previous processed data for the project.
 
 **Response:**  
 ```json
 {
     "signal": "processing_success",
-    "inserted_chunks": 2241
+    "inserted_chunks": 2241,
+    "processed_file": 10
 }
 ```
 
